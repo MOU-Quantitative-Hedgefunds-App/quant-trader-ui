@@ -12,7 +12,7 @@
 
 	// init chart
 	onMount(() => {
-		// Ensure the element is available in the DOM
+	
 		const ctx = document.getElementById('line-chart');
 		if (ctx) {
 			const config = {
@@ -136,82 +136,33 @@
 				Performance Of Your Portfolio Against The Benchmark Index
 			</h2>
 
-			<button
-				id="dropdownDefaultButton"
-				data-dropdown-toggle="dropdown"
-				class="text-black bg-gray-300 font-medium rounded-3xl text-lg px-5
-py-2.5 text-center inline-flex items-center"
-				type="button"
-				>All <svg
-					class="w-2.5 h-2.5 ms-3"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 10 6"
-				>
-					<path
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="m1 1 4 4 4-4"
-					/>
-				</svg>
-			</button>
-
-			<!-- Dropdown menu -->
-			<div
-				id="dropdown"
-				class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-			>
-				<ul
-					class="py-2 text-sm text-gray-700 dark:text-gray-200"
-					aria-labelledby="dropdownDefaultButton"
-				>
-					<li>
-						<a
-							href="#"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-							>Dashboard</a
-						>
-					</li>
-					<li>
-						<a
-							href="#"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-							>Settings</a
-						>
-					</li>
-					<li>
-						<a
-							href="#"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-							>Earnings</a
-						>
-					</li>
-					<li>
-						<a
-							href="#"
-							class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-							>Sign out</a
-						>
-					</li>
-				</ul>
-			</div>
-
-
-
-
-      <div class="relative inline-block"> 
-        <button on:click={toggleDropdown} class="bg-gray-300 text-black px-4 py-2 text-sm font-medium leading-5 rounded-md focus:outline-none focus:shadow-outline-green transition duration-150 ease-in-out rounded-3xl p-3">
-          Dropdown
+	
+      <div class="relative inline-block">  
+		
+        <button on:click={toggleDropdown} class="text-black bg-gray-300 font-medium rounded-3xl text-lg w-20 px-4 py-2.5 text-center inline-flex items-center focus:outline-none focus:shadow-outline-green transition duration-150 ease-in-out">
+          All <svg
+		  class="w-2.5 h-2.5 ms-3"
+		  aria-hidden="true"
+		  xmlns="http://www.w3.org/2000/svg"
+		  fill="none"
+		  viewBox="0 0 10 6"
+	  >
+		  <path
+			  stroke="currentColor"
+			  stroke-linecap="round"
+			  stroke-linejoin="round"
+			  stroke-width="2"
+			  d="m1 1 4 4 4-4"
+		  />
+	  </svg>
         </button>
         {#if isOpen}
-          <div class="absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50 bg-white">
+          <div class="absolute bg-gray-300 text-black right-0 mt-2 w-20 rounded-3xl shadow-lg z-50 ">
             <div class="py-1">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 1</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 2</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 3</a>
+				<a href="#" class="block px-4 py-2 text-sm   hover:bg-gray-100">Week</a>
+              <a href="#" class="block px-4 py-2 text-sm   hover:bg-gray-100">Month</a>
+              <a href="#" class="block px-4 py-2 text-sm   hover:bg-gray-100">Year</a>
+              
             </div>
           </div>
         {/if}
