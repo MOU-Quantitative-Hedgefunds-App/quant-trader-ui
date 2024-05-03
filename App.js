@@ -1,17 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import InvestmentAccountDetail from './src/screens/investmentAccountDetail';
+import { Provider as PaperProvider } from 'react-native-paper'; // Importa PaperProvider de react-native-paper
+import { NavigationContainer } from '@react-navigation/native'; // Importa NavigationContainer de @react-navigation/native
+import { Main } from './src/screens/Main';
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <View style={styles.container}>
-        <InvestmentAccountDetail />
-        <StatusBar style="auto" />
-      </View>
-    </SafeAreaProvider>
+    <PaperProvider>
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <View style={styles.container}>
+            <Main />
+            <StatusBar style="auto" />
+          </View>
+        </SafeAreaProvider>
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
 

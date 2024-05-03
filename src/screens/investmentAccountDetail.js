@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { View, Image, StyleSheet,ScrollView } from 'react-native';
 import { Button, Card, Title, Paragraph, Appbar, Text } from 'react-native-paper';
 import { LineChart } from 'react-native-chart-kit';
-import { SFSymbol } from "react-native-sfsymbols";
+import { IconButton } from 'react-native-paper';
+import NavbarPaper from '../components/navbarPaper';
+import { BottomTabs } from '../components/navBarPaper2';
 
 const arrowUrl = require('../assets/arrow.jpg');
 const creditCardUrl = require('../assets/creditCard.jpg');
@@ -75,25 +77,9 @@ const InvestmentAccountDetail = () => {
         chartConfig={chartConfig}
       />
       </ScrollView> 
-
-      <Appbar style={styles.navigationBar}>
-        <View style={styles.navButtonContainer}>
-          <Appbar.Action icon={() => <Image source={homeUrl} style={styles.icon} />} onPress={() => {}} />
-          <Appbar.Action icon={() => <Image source={portfolioUrl} style={styles.icon} />} onPress={() => {}} />
-          <Appbar.Action icon={() =>
-          <SFSymbol
-          name="thermometer.sun.fill"
-          weight="semibold"
-          scale="large"
-          color="red"
-          size={16}
-          resizeMode="center"
-          multicolor={false}
-          style={{ width: 32, height: 32 }}
-        />
-          } onPress={() => {}} />
-        </View>
-      </Appbar>
+      <BottomTabs />
+      <NavbarPaper />
+      
     </View>
   );
 }
