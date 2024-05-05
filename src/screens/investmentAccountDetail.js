@@ -77,9 +77,7 @@ const InvestmentAccountDetail = () => {
         chartConfig={chartConfig}
       />
       </ScrollView> 
-      <BottomTabs />
-      <NavbarPaper />
-      
+
     </View>
   );
 }
