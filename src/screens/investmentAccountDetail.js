@@ -80,18 +80,8 @@ const InvestmentAccountDetail = () => {
         <View style={styles.navButtonContainer}>
           <Appbar.Action icon={() => <Image source={homeUrl} style={styles.icon} />} onPress={() => {}} />
           <Appbar.Action icon={() => <Image source={portfolioUrl} style={styles.icon} />} onPress={() => {}} />
-          <Appbar.Action icon={() =>
-          <SFSymbol
-          name="thermometer.sun.fill"
-          weight="semibold"
-          scale="large"
-          color="red"
-          size={16}
-          resizeMode="center"
-          multicolor={false}
-          style={{ width: 32, height: 32 }}
-        />
-          } onPress={() => {}} />
+          <Appbar.Action icon={() => <Image source={creditCardUrl} style={styles.icon} />} onPress={() => {}} />
+
         </View>
       </Appbar>
     </View>
