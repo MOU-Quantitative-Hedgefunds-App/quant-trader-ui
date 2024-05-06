@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, StyleSheet,ScrollView } from 'react-native';
 import { Button, Card, Title, Paragraph, Appbar, Text } from 'react-native-paper';
 import { LineChart } from 'react-native-chart-kit';
-import { IconButton } from 'react-native-paper';
-import NavbarPaper from '../components/navbarPaper';
-import { BottomTabs } from '../components/navBarPaper2';
+import { SFSymbol } from "react-native-sfsymbols";
 
 const arrowUrl = require('../assets/arrow.jpg');
 const creditCardUrl = require('../assets/creditCard.jpg');
@@ -78,6 +76,14 @@ const InvestmentAccountDetail = () => {
       />
       </ScrollView> 
 
+      <Appbar style={styles.navigationBar}>
+        <View style={styles.navButtonContainer}>
+          <Appbar.Action icon={() => <Image source={homeUrl} style={styles.icon} />} onPress={() => {}} />
+          <Appbar.Action icon={() => <Image source={portfolioUrl} style={styles.icon} />} onPress={() => {}} />
+          <Appbar.Action icon={() => <Image source={creditCardUrl} style={styles.icon} />} onPress={() => {}} />
+
+        </View>
+      </Appbar>
     </View>
   );
 }

@@ -13,7 +13,7 @@ import { PreferencesContext } from './context/preferencesContext';
 
 export const Main = () => {
   const colorScheme = useColorScheme();
-  const [theme, setTheme] = React.useState<'light' | 'dark'>(
+  const [theme, setTheme] = React.useState(
     colorScheme === 'dark' ? 'dark' : 'light'
   );
   const [rtl] = React.useState(I18nManager.isRTL);
