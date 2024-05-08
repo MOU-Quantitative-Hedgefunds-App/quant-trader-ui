@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Provider as PaperProvider,
   DefaultTheme,
   DarkTheme,
 } from 'react-native-paper';
-import { I18nManager } from 'react-native';
 import { Updates } from 'expo';
-import { useColorScheme } from 'react-native-appearance';
-
+import { Appearance, useColorScheme } from 'react-native';
+import { View } from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 import { RootNavigator } from './rootNavigator';
 import { PreferencesContext } from './context/preferencesContext';
 
@@ -16,44 +16,60 @@ export const Main = () => {
   const [theme, setTheme] = React.useState(
     colorScheme === 'dark' ? 'dark' : 'light'
   );
-  const [rtl] = React.useState(I18nManager.isRTL);
+
 
   function toggleTheme() {
     setTheme(theme => (theme === 'light' ? 'dark' : 'light'));
   }
 
-  const toggleRTL = React.useCallback(() => {
-    I18nManager.forceRTL(!rtl);
-    Updates.reloadFromCache();
-  }, [rtl]);
+
 
   const preferences = React.useMemo(
     () => ({
       toggleTheme,
-      toggleRTL,
+ 
       theme,
-      rtl: (rtl ? 'right' : 'left') ,
+
     }),
-    [rtl, theme, toggleRTL]
+    [theme]
   );
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: 'rgb(255, 45, 85)',
+    },
+  };
 
   return (
     <PreferencesContext.Provider value={preferences}>
-      <PaperProvider
-        theme={
-          theme === 'light'
-            ? {
-                ...DefaultTheme,
-                colors: { ...DefaultTheme.colors, primary: '#1ba1f2' },
-              }
-            : {
-                ...DarkTheme,
-                colors: { ...DarkTheme.colors, primary: '#1ba1f2' },
-              }
-        }
-      >
-        <RootNavigator />
-      </PaperProvider>
-    </PreferencesContext.Provider>
+    <PaperProvider
+      theme={
+        theme === 'light'
+          ? {
+              ...DefaultTheme,
+              colors: { MyTheme, primary: '#1ba1f2' },
+            }
+          : {
+              ...DarkTheme,
+              colors: { MyTheme, primary: '#1ba1f2' },
+            }
+      }
+    >
+      <RootNavigator />
+    </PaperProvider>
+  </PreferencesContext.Provider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 24,
+    color: 'white'
+  },
+});
